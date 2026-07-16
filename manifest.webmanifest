@@ -1,1 +1,10 @@
-{"name":"GME HRMS Professional","short_name":"GME HRMS","start_url":"./index.html","display":"standalone","background_color":"#f4f5f7","theme_color":"#111111","icons":[]}
+{
+  "name": "GME HRMS Professional v5.0",
+  "short_name": "GME HRMS v5.0",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f5f7",
+  "theme_color": "#111111",
+  "icons": [],
+  "description": "Multilingual offline-first HRMS for GME Marketing"
+}

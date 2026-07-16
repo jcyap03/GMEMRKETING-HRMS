@@ -1,4 +1,4 @@
-const CACHE='gme-hrms-v4.5.1';
+const CACHE='gme-hrms-v5.0';
 self.addEventListener('install',event=>{
   self.skipWaiting();
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(['./','./index.html','./manifest.webmanifest'])));

@@ -1,5 +1,11 @@
-# GME HRMS Professional v4.5.1 PWA
+# GME HRMS Professional v5.0
 
-English is the default language. Use the language selector in the desktop sidebar or mobile top bar to switch to Bahasa Melayu or Chinese.
+GitHub Pages-ready multilingual PWA.
 
-Upload all files to the root of your GitHub Pages repository.
+Languages: English (default), Bahasa Melayu and Simplified Chinese.
+
+## Deploy
+Upload all files to the root of the GitHub repository, then enable GitHub Pages from the `main` branch and `/root`.
+
+## Important
+Do not upload employee JSON backups to a public repository. Restore backups privately inside the HRMS Backup Manager.

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>GME HRMS Professional v4.5.1 PWA</title>
+<title>GME HRMS Professional v5.0 PWA</title>
 <meta name="theme-color" content="#111111">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -174,13 +174,13 @@ input[type=number]{text-align:right}.btn{border:0;border-radius:7px;padding:10px
 </style>
 </head>
 <body>
-<div class="mobile-topbar no-print"><button class="menu-toggle" type="button" onclick="toggleMobileMenu()">☰ Menu</button><strong>GME HRMS v4.5.1</strong><select id="languageSwitcherMobile" class="language-switcher" onchange="setLanguage(this.value)" aria-label="Language"><option value="en">English</option><option value="ms">Bahasa Melayu</option><option value="zh">中文</option></select><span id="pwaState" class="pwa-state">Ready</span></div>
+<div class="mobile-topbar no-print"><button class="menu-toggle" type="button" onclick="toggleMobileMenu()">☰ Menu</button><strong>GME HRMS v5.0</strong><select id="languageSwitcherMobile" class="language-switcher" onchange="setLanguage(this.value)" aria-label="Language"><option value="en">English</option><option value="ms">Bahasa Melayu</option><option value="zh">中文</option></select><span id="pwaState" class="pwa-state">Ready</span></div>
 <div id="offlineBanner" class="offline-banner">Offline mode — changes remain saved on this device</div>
 <div class="app">
 <aside class="sidebar no-print">
 <h1>GME HRMS Pro v4.5.1</h1><p>Installable PWA · Offline-first · Existing data kept</p>
 <div class="language-panel">
-<label for="languageSwitcherDesktop">Language / Bahasa / 语言</label>
+<label for="languageSwitcherDesktop">🌐 Language / Bahasa / 语言</label>
 <select id="languageSwitcherDesktop" class="language-switcher" onchange="setLanguage(this.value)" aria-label="Language">
 <option value="en">English</option>
 <option value="ms">Bahasa Melayu</option>
@@ -1201,7 +1201,7 @@ const _refreshAllV44=refreshAll;refreshAll=function(){_refreshAllV44();refreshLe
 ;(db.outstations||[]).forEach((r,i)=>{r.id=r.id||'OUT-'+String(i+1).padStart(4,'0');r.attachments=r.attachments||[]});
 ;(db.exceptions||[]).forEach((r,i)=>{r.id=r.id||'ATT-'+String(i+1).padStart(4,'0');r.attachments=r.attachments||[]});
 ;(db.claims||[]).forEach(r=>{r.attachments=r.attachments||[];if(r.receipt&&!r.attachments.some(f=>f.data===r.receipt.data))r.attachments.push(r.receipt)});
-db.version='4.5.1';
+db.version='5.0';
 
 
 
@@ -1239,9 +1239,50 @@ const GME_I18N={
  'Pending Approval':'待批准','Approved':'已批准','Rejected':'已拒绝','Paid':'已支付','Draft':'草稿','Submitted':'已提交','Closed':'已关闭','Active':'在职','Resigned':'已离职','Permanent':'永久','Probation':'试用','Part-Time':'兼职','Fixed Term':'固定期限','Bank Transfer':'银行转账','Cash':'现金','Not Applicable':'不适用','Search':'搜索','Action':'操作','Files':'文件','Amount':'金额','Total':'总计','Employee':'员工','Type':'类型','Description':'说明','Category':'类别','Supplier':'供应商','Reference':'参考编号','Save':'保存','Cancel':'取消','Close':'关闭','Continue Working':'继续工作','Backup Now':'立即备份','Restore JSON':'恢复JSON','Exit System':'退出系统','Language':'语言'
  }
 };
+
+// v5.0 consolidated multilingual coverage
+const GME_I18N_EXTRA={
+ ms:{
+ 'Good morning — GME HRMS':'Selamat pagi — GME HRMS','Good afternoon — GME HRMS':'Selamat petang — GME HRMS','Good evening — GME HRMS':'Selamat malam — GME HRMS',
+ 'Manage employees, payroll, claims and company records securely from this device.':'Urus pekerja, gaji, tuntutan dan rekod syarikat dengan selamat dari peranti ini.',
+ 'Staff Claims & Expenses':'Tuntutan & Perbelanjaan Kakitangan','Company Expenses This Month':'Perbelanjaan Syarikat Bulan Ini','Company Expense Records':'Rekod Perbelanjaan Syarikat',
+ 'Your work is saved automatically in this browser. Export a JSON backup regularly so the records can be restored on another device or after browser data is cleared.':'Kerja anda disimpan secara automatik dalam pelayar ini. Eksport sandaran JSON secara berkala supaya rekod boleh dipulihkan pada peranti lain atau selepas data pelayar dipadam.',
+ 'Open Backup Manager':'Buka Pengurus Sandaran','Backup recommended: no JSON backup has been recorded yet.':'Sandaran disyorkan: belum ada sandaran JSON direkodkan.',
+ 'Backup status is being checked…':'Status sandaran sedang diperiksa…','Checking backup status…':'Memeriksa status sandaran…','Automatic Save':'Simpan Automatik','Unsaved Changes Since Backup':'Perubahan Sejak Sandaran','Last JSON Backup':'Sandaran JSON Terakhir','Database Size':'Saiz Pangkalan Data','System Version':'Versi Sistem','Storage Location':'Lokasi Simpanan','Current browser only':'Pelayar semasa sahaja','Recent Backup History':'Sejarah Sandaran Terkini',
+ 'Company Account Expense':'Perbelanjaan Akaun Syarikat','Company Account Expense Records':'Rekod Perbelanjaan Akaun Syarikat','Expense Month':'Bulan Perbelanjaan','Supplier / Payee':'Pembekal / Penerima','Company Payment Method':'Kaedah Bayaran Syarikat','Bank / Account Used':'Bank / Akaun Digunakan','Transaction Reference':'Rujukan Transaksi','Invoice / Receipt No.':'No. Invois / Resit','Tax Treatment':'Rawatan Cukai','Supporting Documents':'Dokumen Sokongan','Upload Files / Invoices / Pictures':'Muat Naik Fail / Invois / Gambar','Save Company Expense':'Simpan Perbelanjaan Syarikat','Company Expense Register':'Daftar Perbelanjaan Syarikat','Export CSV':'Eksport CSV','Filter by Month':'Tapis mengikut Bulan','All Categories':'Semua Kategori','All Statuses':'Semua Status',
+ 'No saved attachments.':'Tiada lampiran disimpan.','Attachment':'Lampiran','File':'Fail','Size':'Saiz','Add More Attachments':'Tambah Lagi Lampiran','Approval / Supporting Documents':'Dokumen Kelulusan / Sokongan',
+ 'Salary Advance Register':'Daftar Pendahuluan Gaji','Advance Reference':'Rujukan Pendahuluan','Auto Deduction Month':'Bulan Potongan Automatik','No matching approved salary advance.':'Tiada pendahuluan gaji diluluskan yang sepadan.',
+ 'Employee Information':'Maklumat Pekerja','Employment Details':'Butiran Pekerjaan','Salary & Allowance':'Gaji & Elaun','Terms & Conditions':'Terma & Syarat','Employer Signature':'Tandatangan Majikan','Employee Signature':'Tandatangan Pekerja',
+ 'Previous':'Sebelumnya','Next':'Seterusnya','Clear':'Kosongkan','Reset':'Tetapkan Semula','Print':'Cetak','Download':'Muat Turun','Preview':'Pratonton','Upload':'Muat Naik','Approve':'Luluskan','Reject':'Tolak','Pending':'Belum Selesai','View':'Lihat','Record ID':'ID Rekod','Updated At':'Dikemas Kini Pada'
+ },
+ zh:{
+ 'Good morning — GME HRMS':'早上好 — GME HRMS','Good afternoon — GME HRMS':'下午好 — GME HRMS','Good evening — GME HRMS':'晚上好 — GME HRMS',
+ 'Manage employees, payroll, claims and company records securely from this device.':'在此设备上安全管理员工、薪资、报销及公司记录。',
+ 'Staff Claims & Expenses':'员工报销与费用','Company Expenses This Month':'本月公司支出','Company Expense Records':'公司支出记录',
+ 'Your work is saved automatically in this browser. Export a JSON backup regularly so the records can be restored on another device or after browser data is cleared.':'您的资料会自动保存在此浏览器中。请定期导出 JSON 备份，以便在其他设备或浏览器资料被清除后恢复记录。',
+ 'Open Backup Manager':'打开备份管理','Backup recommended: no JSON backup has been recorded yet.':'建议备份：目前尚未记录任何 JSON 备份。',
+ 'Backup status is being checked…':'正在检查备份状态…','Checking backup status…':'正在检查备份状态…','Automatic Save':'自动保存','Unsaved Changes Since Backup':'备份后的未备份更改','Last JSON Backup':'上次 JSON 备份','Database Size':'数据库大小','System Version':'系统版本','Storage Location':'储存位置','Current browser only':'仅当前浏览器','Recent Backup History':'最近备份记录',
+ 'Company Account Expense':'公司账户支出','Company Account Expense Records':'公司账户支出记录','Expense Month':'支出月份','Supplier / Payee':'供应商 / 收款人','Company Payment Method':'公司付款方式','Bank / Account Used':'使用的银行 / 账户','Transaction Reference':'交易参考编号','Invoice / Receipt No.':'发票 / 收据编号','Tax Treatment':'税务处理','Supporting Documents':'支持文件','Upload Files / Invoices / Pictures':'上传文件 / 发票 / 图片','Save Company Expense':'保存公司支出','Company Expense Register':'公司支出登记','Export CSV':'导出 CSV','Filter by Month':'按月份筛选','All Categories':'所有类别','All Statuses':'所有状态',
+ 'No saved attachments.':'没有已保存的附件。','Attachment':'附件','File':'文件','Size':'大小','Add More Attachments':'添加更多附件','Approval / Supporting Documents':'批准 / 支持文件',
+ 'Salary Advance Register':'预支薪资登记','Advance Reference':'预支参考编号','Auto Deduction Month':'自动扣款月份','No matching approved salary advance.':'没有符合条件的已批准预支薪资。',
+ 'Employee Information':'员工资料','Employment Details':'雇佣详情','Salary & Allowance':'薪资与津贴','Terms & Conditions':'条款与条件','Employer Signature':'雇主签名','Employee Signature':'员工签名',
+ 'Previous':'上一页','Next':'下一页','Clear':'清除','Reset':'重置','Print':'打印','Download':'下载','Preview':'预览','Upload':'上传','Approve':'批准','Reject':'拒绝','Pending':'待处理','View':'查看','Record ID':'记录编号','Updated At':'更新时间'
+ }
+};
+for(const lang of ['ms','zh']) Object.assign(GME_I18N[lang],GME_I18N_EXTRA[lang]);
+function gmeDynamicTranslation(text,lang){
+ if(lang==='en')return text;
+ const t=String(text||'').trim();
+ let m;
+ if((m=t.match(/^Backup recommended: records have changed since the last JSON backup \((.+)\)\.$/))){return lang==='zh'?`建议备份：自上次 JSON 备份（${m[1]}）后记录已有更改。`:`Sandaran disyorkan: rekod telah berubah sejak sandaran JSON terakhir (${m[1]}).`}
+ if((m=t.match(/^Skipped files above 2 MB: (.+)$/))){return lang==='zh'?`已跳过超过 2 MB 的文件：${m[1]}`:`Fail melebihi 2 MB telah dilangkau: ${m[1]}`}
+ if((m=t.match(/^Mark (\d+) claim\(s\), total RM (.+), as paid with this payroll\?$/))){return lang==='zh'?`将 ${m[1]} 项报销（总额 RM ${m[2]}）标记为随本月薪资支付吗？`:`Tandakan ${m[1]} tuntutan, jumlah RM ${m[2]}, sebagai dibayar bersama gaji ini?`}
+ return GME_I18N[lang]?.[t]||null;
+}
+
 const _gmeTextOriginal=new WeakMap();
-function gmeTranslateTextNode(node,lang){if(!node||node.nodeType!==3)return;let original=_gmeTextOriginal.get(node);if(original===undefined){original=node.nodeValue;_gmeTextOriginal.set(node,original)}if(lang==='en'){node.nodeValue=original;return}const trimmed=original.trim();if(!trimmed)return;const translated=GME_I18N[lang]?.[trimmed];if(translated){const lead=original.match(/^\s*/)?.[0]||'';const trail=original.match(/\s*$/)?.[0]||'';node.nodeValue=lead+translated+trail}}
-function gmeTranslateElement(root,lang){if(!root)return;const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{const p=n.parentElement;if(!p||['SCRIPT','STYLE','TEXTAREA'].includes(p.tagName))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});let n;while(n=walker.nextNode())gmeTranslateTextNode(n,lang);root.querySelectorAll?.('[placeholder],[title],[aria-label]').forEach(el=>{['placeholder','title','aria-label'].forEach(attr=>{if(!el.hasAttribute(attr))return;const key='i18nOriginal'+attr.replace('-','');if(!el.dataset[key])el.dataset[key]=el.getAttribute(attr);const original=el.dataset[key];el.setAttribute(attr,lang==='en'?original:(GME_I18N[lang]?.[original]||original))})})}
+function gmeTranslateTextNode(node,lang){if(!node||node.nodeType!==3)return;let original=_gmeTextOriginal.get(node);if(original===undefined){original=node.nodeValue;_gmeTextOriginal.set(node,original)}if(lang==='en'){node.nodeValue=original;return}const trimmed=original.trim();if(!trimmed)return;const translated=GME_I18N[lang]?.[trimmed]||gmeDynamicTranslation(trimmed,lang);if(translated){const lead=original.match(/^\s*/)?.[0]||'';const trail=original.match(/\s*$/)?.[0]||'';node.nodeValue=lead+translated+trail}}
+function gmeTranslateElement(root,lang){if(!root)return;const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{const p=n.parentElement;if(!p||['SCRIPT','STYLE','TEXTAREA'].includes(p.tagName))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});let n;while(n=walker.nextNode())gmeTranslateTextNode(n,lang);root.querySelectorAll?.('[placeholder],[title],[aria-label],[value]').forEach(el=>{['placeholder','title','aria-label'].concat((el.tagName==='INPUT'&&['button','submit','reset'].includes(el.type))?['value']:[]).forEach(attr=>{if(!el.hasAttribute(attr))return;const key='i18nOriginal'+attr.replace('-','');if(!el.dataset[key])el.dataset[key]=el.getAttribute(attr);const original=el.dataset[key];el.setAttribute(attr,lang==='en'?original:(GME_I18N[lang]?.[original]||original))})})}
 function setLanguage(lang='en'){if(!['en','ms','zh'].includes(lang))lang='en';localStorage.setItem(GME_LANG_KEY,lang);document.documentElement.lang=lang==='zh'?'zh-CN':lang;document.querySelectorAll('.language-switcher').forEach(s=>s.value=lang);gmeTranslateElement(document.body,lang)}
 function currentLanguage(){return localStorage.getItem(GME_LANG_KEY)||'en'}
 const _gmeOriginalRefreshAll=refreshAll;refreshAll=function(){const r=_gmeOriginalRefreshAll.apply(this,arguments);setTimeout(()=>setLanguage(currentLanguage()),0);return r}
